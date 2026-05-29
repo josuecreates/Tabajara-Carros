@@ -1,0 +1,178 @@
+:root {
+    --laranja: #FF6D00;
+    --laranja-dark: #E65100;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    /* Fundo degradê temático de carro */
+    background: linear-gradient(135deg,
+            #1a1a1a 0%,
+            #2c2c2c 40%,
+            #FF6D00 70%,
+            #E65100 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Carro grande em degradê / silhueta no fundo */
+body::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 720px;
+    height: 480px;
+    background: url('https://i.imgur.com/8zK5vL2.png') center/contain no-repeat;
+    opacity: 0.13;
+    z-index: 0;
+    filter: brightness(1.4) contrast(0.9) drop-shadow(0 0 40px rgba(255, 109, 0, 0.3));
+    pointer-events: none;
+}
+
+/* Efeito de velocidade / movimento */
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent,
+            rgba(255, 255, 255, 0.03),
+            transparent);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.96);
+    width: 100%;
+    max-width: 400px;
+    border-radius: 28px;
+    padding: 45px 35px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    font-size: 56px;
+    color: var(--laranja);
+    margin-bottom: 12px;
+}
+
+.title {
+    font-size: 29px;
+    font-weight: 700;
+    color: var(--laranja);
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: #333;
+    font-size: 15.5px;
+    margin-bottom: 38px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #ffe0cc;
+    border-radius: 14px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--laranja);
+    box-shadow: 0 0 0 5px rgba(255, 109, 0, 0.2);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 1.15rem;
+}
+
+.form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px 0 28px;
+    font-size: 15px;
+    color: #333;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.btn-entrar {
+    width: 100%;
+    padding: 16px;
+    background: var(--laranja);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-entrar:hover {
+    background: var(--laranja-dark);
+    transform: translateY(-2px);
+}
+
+.forgot {
+    color: var(--laranja);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot:hover {
+    text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+    body::before {
+        width: 480px;
+        height: 320px;
+        opacity: 0.10;
+    }
+
+    .login-card {
+        padding: 35px 25px;
+    }
+}
