@@ -4,7 +4,6 @@
 
 Interface clean, moderna e responsiva com tema automotivo laranja/preto.
 
-![Preview](https://i.imgur.com/8zK5vL2.png)
 
 ## ✨ Funcionalidades
 
